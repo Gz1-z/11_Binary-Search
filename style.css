@@ -1,25 +1,89 @@
-body { font-family: sans-serif; background: #f8f9fa; display: flex; justify-content: center; padding-top: 50px; }
-.container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; max-width: 800px; }
-.box-container { display: flex; justify-content: center; gap: 5px; margin: 20px 0; }
-.box { 
-    width: 50px; height: 50px; line-height: 50px; border: 2px solid #ddd; 
-    border-radius: 4px; font-weight: bold; transition: 0.3s; background: #fff;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
 }
 
-/* Kotak yang sedang dalam jangkauan pencarian */
-.in-range { border-color: #007bff; background: #e7f1ff; }
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
 
-/* Kotak yang sudah dieliminasi */
-.eliminated { opacity: 0.3; background: #f1f1f1; border-color: #eee; }
+.input-section {
+    margin-bottom: 20px;
+}
 
-/* Titik Tengah */
-.mid { background: #ffc107 !important; transform: scale(1.1); border-color: #e0a800; }
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+}
 
-/* Berhasil */
-.found { background: #28a745 !important; color: white; border-color: #1e7e34; }
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+    min-height: 60px;
+}
 
-.input-section { margin-bottom: 20px; }
-input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-button { padding: 8px 15px; cursor: pointer; border-radius: 4px; border: none; background: #007bff; color: white; }
-button:disabled { background: #ccc; }
-#statusMsg { margin-top: 15px; min-height: 40px; color: #444; }
+.box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Status Warna Visualisasi */
+.box.active { background-color: #3498db; color: white; transform: scale(1.1); }
+.box.target { background-color: #2ecc71; color: white; border-color: #27ae60; }
+.box.discarded { opacity: 0.3; background-color: #bdc3c7; }
+.box.low-high { border: 2px solid #e67e22; }
+
+/* History Log Section */
+#statusMsg {
+    margin-top: 20px;
+    padding: 15px;
+    background: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 6px;
+    text-align: left;
+    height: 150px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.log-entry {
+    border-bottom: 1px solid #3e4f5f;
+    padding: 5px 0;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+button:disabled { background-color: #ccc; cursor: not-allowed; }
+button:hover:not(:disabled) { background-color: #2c3e50; }
